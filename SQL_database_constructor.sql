@@ -1,3 +1,6 @@
+CREATE DATABASE moviedata;
+USE moviedata;
+
 -- phpMyAdmin SQL Dump
 -- version 4.8.5
 -- https://www.phpmyadmin.net/
@@ -6,6 +9,7 @@
 -- Generation Time: May 24, 2020 at 06:32 AM
 -- Server version: 10.1.38-MariaDB
 -- PHP Version: 7.3.2
+
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
