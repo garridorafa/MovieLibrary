@@ -1,5 +1,12 @@
 const dbController = require('./db-mysql');
 
+module.exports = {
+    getAllMovies,
+    getMovieByID,
+    AddMovie,
+    deleteMovieById
+}
+
 function getAllMovies(cb) {
     dbController.dbConnect(err => {
         if (err) throw err        

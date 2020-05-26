@@ -1,5 +1,12 @@
 const dbController = require('./db-mysql');
 
+module.exports = {
+    getAllActors,
+    getActorByID,
+    AddActor,
+    deleteActorById
+}
+
 function getAllActors(cb) {
     dbController.dbConnect(err => {
         if (err) throw err        

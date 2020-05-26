@@ -1,5 +1,12 @@
 const dbController = require('./db-mysql');
 
+module.exports = {
+    getAllGenres,
+    getGenreByID,
+    AddGenre,
+    deleteGenreById
+}
+
 function getAllGenres(cb) {
     dbController.dbConnect(err => {
         if (err) throw err        
