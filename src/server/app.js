@@ -10,6 +10,6 @@ app.listen(PORT, () => {
     console.log(`Listening on port: ${PORT}`)
 });
 
-app.use(require('./src/api/routes/actors'))
-app.use(require('./src/api/routes/movies'))
-app.use(require('./src/api/routes/genres'))
+app.use(require('./api/routes/actors'))
+app.use(require('./api/routes/movies'))
+app.use(require('./api/routes/genres'))

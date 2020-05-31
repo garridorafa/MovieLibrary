@@ -17,6 +17,6 @@ function dbConnect(cb) {
     conn.connect();
 }
 
-function dbDisconnect(cb) {
+function dbDisconnect() {
     conn.end();
 }
