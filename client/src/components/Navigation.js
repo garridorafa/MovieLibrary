@@ -4,14 +4,15 @@ export class Navigation extends Component {
 	render() {
 		return (
 			<header>
-				<div>
+				<div style= {body}>
 					<nav>
-						<a>Movies Library</a>
-						<input/>
+						<a href="#" >Movies Library</a>
+						<input type="text" />
 						<input type="submit" value="Search"/>
-						<a>Movies </a>
-						<a>Genres </a>
-						<a>Actors </a>
+						<a href="#" >Movies </a>
+						<a href="#" >Genres </a>
+						<a href="#" >Actors </a>
+						<a href="#" >Login </a>
 					</nav>
 				</div>
 			</header>
@@ -20,3 +21,9 @@ export class Navigation extends Component {
 }
 
 export default Navigation
+
+
+
+const body = {
+	padding: "8px"
+}

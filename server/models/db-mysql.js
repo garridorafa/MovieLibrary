@@ -14,7 +14,7 @@ module.exports = {
 }
 
 function dbConnect(cb) {
-    conn.connect();
+    conn.connect(cb);
 }
 
 function dbDisconnect() {
