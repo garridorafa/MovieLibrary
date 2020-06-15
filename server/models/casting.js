@@ -1,5 +1,11 @@
 const dbController = require('./db-mysql');
 
+module.exports = {
+  getAllCasting,
+  addCasting,
+  deleteCasting
+}
+
 function getAllCasting(cb) {
   dbController.dbConnect(err => {
     if (err) throw err;
