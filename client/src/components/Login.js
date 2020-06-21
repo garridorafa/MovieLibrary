@@ -6,10 +6,10 @@ export default class Login extends Component {
       <div>
         <h2>Login</h2>
         
-        <form>
-          User : <input id="login_user" /> <br/>
-          Pass: <input id="login_pass" /> <br/>
-          <input type="submit" />
+        <form action="http://localhost:8080/auth/login" method="post">
+          User: <input id="login_user" name="username" /> <br/>
+          Pass: <input id="login_pass" name="password" /> <br/>
+          <button type="submit">Log in</button>
         </form>
       </div>
     )
