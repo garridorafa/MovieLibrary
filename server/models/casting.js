@@ -7,7 +7,7 @@ module.exports = {
 }
 
 function getAllCasting(cb) {
-  dbController.conn.query('SELECT casting.actorID, casting.movieID, movies.name, movies.year FROM casting INNER JOIN movies ON casting.movieID=movies.movieID;', (err, result) =>{
+  dbController.conn.query(`SELECT casting.actorID, casting.movieID, movies.name, movies.year FROM casting INNER JOIN movies ON casting.movieID=movies.movieID`, (err, result) =>{
     if (err) throw err;
     cb(result)
   });

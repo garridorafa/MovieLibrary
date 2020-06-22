@@ -1,6 +1,5 @@
 const dbController = require('./db-mysql');
 const casting = require('./casting');
-const { getAllCasting } = require('./casting');
 
 module.exports = {
 	getAllActors,
@@ -9,10 +8,41 @@ module.exports = {
 	deleteActorById
 }
 
+function getActorsMovies(cb) {
+	casting.getAllCasting(result => cb(result))
+}
+
+function mergeActorAndMovies(actors, cb) {
+	getActorsMovies(casting => {
+		for (let j = 0; j < casting.length; j++) {
+			for (let i = 0; i < actors.length; i++) {
+				if (j===0) {
+					actors.forEach(actors => {
+						actors.movies = [];			
+					});
+				}
+				if (actors[i].actorID === casting[j].actorID) {
+					actors[i].movies = [
+						...actors[i].movies,
+						{	
+							id: casting[j].movieID,
+							title: casting[j].name}
+					];
+				}
+			}
+		}
+		cb(actors)
+	});
+	
+}
+
+
+
 function getAllActors(cb) {
-	dbController.conn.query('SELECT * FROM actors', (err, result) => {
+	dbController.conn.query('SELECT * FROM actors', (err, actors) => {
 		if (err) throw err;
-		cb(result);
+		
+		mergeActorAndMovies(actors, movies => cb(movies))
 	})
 }
 
