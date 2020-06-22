@@ -8,15 +8,5 @@ let conn = db.createConnection({
 });
 
 module.exports = {
-    conn,
-    dbConnect,
-    dbDisconnect
-}
-
-function dbConnect(cb) {
-    conn.connect(cb);
-}
-
-function dbDisconnect() {
-    conn.end();
+    conn
 }
