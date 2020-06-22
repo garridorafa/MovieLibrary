@@ -33,10 +33,7 @@ function mergeActorAndMovies(actors, cb) {
 		}
 		cb(actors)
 	});
-	
 }
-
-
 
 function getAllActors(cb) {
 	dbController.conn.query('SELECT * FROM actors', (err, actors) => {
