@@ -1,16 +1,10 @@
 import React, { Component } from 'react';
-import { BrowserRouter as Router, Route } from "react-router-dom";
-
-//Samples
-//import movies from './sample/sampleMovies.json'
-//import actors from './sample/sampleActors.json'
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
 //Components
 import Login from './components/Login';
 import Navigation from "./components/Navigation";
-import Movie from "./components/Movie";
 import Movies from "./components/Movies";
-import Actor from "./components/Actor";
 import Actors from "./components/Actors";
 
 
@@ -41,17 +35,31 @@ export default class App extends Component {
 
   render() {
     return (
-      <div className="App">
-        <Navigation />
-        <Login />
-      </div>
+      <Router>
+        <div className="app">
+          <Navigation />
+          <Switch>
+            <Route path="/" exact>
+              <h1 className="d-flex justify-content-center">Welcome to Movie Library!!!</h1>
+              <p className="d-flex justify-content-center">This is a page that love movies :)</p>
+            </Route>
+            <Route path="/movies">
+              <h1 className="d-flex justify-content-center" >Movies List</h1>
+              <Movies movies={this.state.movies} />
+            </Route>
+            <Router path="/genres">
+              <h1 className="d-flex justify-content-center" >Genres List</h1>
+            </Router>
+            <Router path="/actors">
+              <h1 className="d-flex justify-content-center" >Actors List</h1>
+              <Actors actors={this.state.actors}/>
+            </Router>
+            <Route path="/login">
+              <Login />
+            </Route>
+          </Switch>
+        </div>
+      </Router>
     );
   }
 }
-
-//Testing components
-/*
-<Movies movies={this.state.movies} />
-<Actors actors={actors}/>
-<Navigation/>
-*/

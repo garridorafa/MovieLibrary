@@ -3,27 +3,34 @@ import React, { Component } from 'react'
 export class Navigation extends Component {
 	render() {
 		return (
-			<header>
-				<div style= {body}>
-					<nav>
-						<a href="#" >Movies Library</a>
-						<input type="text" />
-						<input type="submit" value="Search"/>
-						<a href="#" >Movies </a>
-						<a href="#" >Genres </a>
-						<a href="#" >Actors </a>
-						<a href="#" >Login </a>
-					</nav>
-				</div>
-			</header>
+			<nav className="navbar navbar-expand-lg navbar-dark bg-dark">
+				<button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggler" aria-controls="navbarToggler" aria-expanded="true" aria-label="Toggle navigation">
+					<span className="navbar-toggler-icon" ></span>
+				</button>
+				<div className="collapse navbar-collapse" id="navbarToggler">
+					<a className="navbar-brand" href="/" >Movies Library</a>
+					<form class="form-inline ">
+						<input lass="form-control" type="search" placeholder="Movies, actors, genres..."/>
+						<input className="btn btn-info" type="submit" value="Search"/>
+					</form>
+					<ul className="navbar-nav">
+						<li className="nav-item">
+							<a className="nav-link" href="/movies" >Movies </a>
+						</li>
+						<li className="nav-item">
+							<a className="nav-link" href="/genres" >Genres </a>
+						</li>
+						<li className="nav-item">
+							<a className="nav-link" href="/actors" >Actors </a>
+						</li>
+						<li className="nav-item ">
+							<a className="nav-link" href="/login" >Login </a>
+						</li>
+					</ul>
+				</div>			
+			</nav>
 		)
 	}
 }
 
 export default Navigation
-
-
-
-const body = {
-	padding: "8px"
-}
