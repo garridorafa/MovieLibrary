@@ -6,6 +6,7 @@ import Login from './components/Login';
 import Navigation from "./components/Navigation";
 import Movies from "./components/Movies";
 import Actors from "./components/Actors";
+import Footer from './components/Footer';
 
 
 export default class App extends Component {
@@ -58,6 +59,7 @@ export default class App extends Component {
               <Login />
             </Route>
           </Switch>
+          <Footer/>
         </div>
       </Router>
     );
