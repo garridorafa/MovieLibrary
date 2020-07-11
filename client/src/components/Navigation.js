@@ -9,7 +9,7 @@ export class Navigation extends Component {
 				</button>
 				<div className="collapse navbar-collapse" id="navbarToggler">
 					<a className="navbar-brand" href="/" >Movies Library</a>
-					<form class="form-inline ">
+					<form className="form-inline ">
 						<input lass="form-control" type="search" placeholder="Movies, actors, genres..."/>
 						<input className="btn btn-info" type="submit" value="Search"/>
 					</form>

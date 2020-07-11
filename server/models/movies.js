@@ -1,5 +1,6 @@
 const dbController = require('./db-mysql');
 const casting = require('./casting');
+const genres = require('./genres_movies');
 
 module.exports = {
 	getAllMovies,
@@ -27,6 +28,34 @@ function mergeActorAndMovies(movies, cb) {
 						{
 							id: casting[j].actorID,
 							name: casting[j].actorName
+						}
+					];
+				}
+			}
+		}
+		cb(movies)
+	});
+}
+
+function getGenresMovies(cb) {
+	genres.getAllCasting(result => cb(result))
+}
+
+function mergeGenresAndMovies(movies, cb) {
+	getGenresMovies(genres => {
+		for (let j = 0; j < genres.length; j++) {
+			for (let i = 0; i < movies.length; i++) {
+				if (j === 0) {
+					movies.forEach(movies => {
+						movies.genres = [];
+					});
+				}
+				if (movies[i].movieID === genres[j].movieID) {
+					movies[i].genres = [
+						...movies[i].genres,
+						{
+							id: genres[j].genreID,
+							name: genres[j].genreName
 						}
 					];
 				}

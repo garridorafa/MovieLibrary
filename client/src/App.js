@@ -13,6 +13,7 @@ export default class App extends Component {
   state = {
     movies: [],
     actors: [],
+    genres: [],
     error: null
   }
 
@@ -20,10 +21,38 @@ export default class App extends Component {
     fetch('http://localhost:8080/movies')
       .then(res => res.json())
       .then(movies => {
-        console.log(movies)
         this.setState({
           ...this.state,
           movies
+        })
+      })
+      .catch(error => {
+        this.setState({
+          ...this.state,
+          error
+        })
+      })
+
+      fetch('http://localhost:8080/actors')
+      .then(res => res.json())
+      .then(actors => {
+        this.setState({
+          ...this.state,
+          actors
+        })
+      })
+      .catch(error => {
+        this.setState({
+          ...this.state,
+          error
+        })
+      })
+
+      fetch('http://localhost:8080/genres')
+      .then(genres => {
+        this.setState({
+          ...this.state,
+          genres
         })
       })
       .catch(error => {

@@ -10,9 +10,8 @@ export default class Actor extends Component {
         <img src={actor.photo} alt=""></img>
         <p>Movies:</p>
         <ul>
-          {actor.movies && actor.movies.map(movie => <li> <a href=""> {movie.name} </a> </li>)}
+          {actor.movies && actor.movies.map(movie => <li> <a href=""> {movie.title} </a> </li>)}
         </ul>
-
       </div>
     )
   }
