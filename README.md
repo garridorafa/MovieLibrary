@@ -1,2 +1,2 @@
 # MovieLibrary
-Node.js Movies Library API
+Node.js Movies Library app
